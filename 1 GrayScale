@@ -1,18 +1,41 @@
 #Importar librerias de trabajo
 from matplotlib import pyplot
 from matplotlib import image
+
 #Leemos la imagen
 a=image.imread('imagen.jpg')
+
 #Mostramos propiedades de la imagen (y,x,z)
 print(a.shape)
+
 #Generamos el objeto
 b=pyplot.imshow(a)
+
 #Mostramos el objeto
 pyplot.show(b)
+
 #Importamos libreria de vision
 import cv2
+
 #El comando cvtColor transforma imagenes en otros formatos
 #Cambiamos la imagen a escala de grises
 imagengris=cv2.cvtColor(a,cv2.COLOR_RGB2GRAY)
-b=pyplot.imshow(imagengris)#, cmap='gray')
+b=pyplot.imshow(imagengris, cmap='gray')
 pyplot.show(b)
+
+#Mostrar el valor de un pixel en especifico
+x=200
+y=200
+print(imagengris[y,x])
+
+#Crear imagen
+import numpy as np
+imagen = np.array([[0, 20, 30, 150, 120],
+                   [200, 200, 250, 70, 3],
+                   [50, 180, 85, 40, 90],
+                   [240, 100, 50, 255, 10],
+                   [30, 0, 75, 190, 220]])
+
+#Matshow muestra una cuadrilla
+a=pyplot.matshow(imagen, cmap='gray')
+pyplot.show(a)
