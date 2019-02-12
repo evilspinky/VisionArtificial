@@ -1,0 +1,18 @@
+#Importar librerias de trabajo
+from matplotlib import pyplot
+from matplotlib import image
+#Leemos la imagen
+a=image.imread('imagen.jpg')
+#Mostramos propiedades de la imagen (y,x,z)
+print(a.shape)
+#Generamos el objeto
+b=pyplot.imshow(a)
+#Mostramos el objeto
+pyplot.show(b)
+#Importamos libreria de vision
+import cv2
+#El comando cvtColor transforma imagenes en otros formatos
+#Cambiamos la imagen a escala de grises
+imagengris=cv2.cvtColor(a,cv2.COLOR_RGB2GRAY)
+b=pyplot.imshow(imagengris)#, cmap='gray')
+pyplot.show(b)
