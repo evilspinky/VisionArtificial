@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+from matplotlib.pyplot import imshow,show
+from cv2 import imread,cvtColor, COLOR_BGR2RGB, inRange
+from numpy import array,copy
+import numpy as np
+a=imread('gato.jpg')
+#Cambiar a RGB
+a=cvtColor(a,COLOR_BGR2RGB)
+b=imshow(a)
+show(b)
+#Definir threshold
+threshold_low=array([245,235,225])
+threshold_high=array([255,255,255])
+#Crear Mascara
+mascara=inRange(a,threshold_low,threshold_high)
+obj=imshow(mascara, cmap='gray')
+show(obj)
+final=np.copy(a)
+final[mascara != 0] = [0,0,0]
+obj=imshow(final)
+show(obj)
+#Mascara e img
+i,j,k=a.shape
+fondo=imread('fondo.jpg')
+fondo=fondo[0:i,0:j]
+fondo[mascara==0]=[0,0,0]
+obj=imshow(fondo)
+show(obj)
+f=final+fondo
+obj=imshow(f)
+show(obj)
