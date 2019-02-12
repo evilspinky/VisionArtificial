@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #Importar librerias de trabajo
 from matplotlib import pyplot
 from matplotlib import image
