@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+from matplotlib import pyplot
+from matplotlib import image
+#Leer imagen
+a=image.imread('rgb.png')
+obj=pyplot.imshow(a)
+pyplot.show(obj)
+#Capas RGB
+r=a[:,:,0]
+g=a[:,:,1]
+b=a[:,:,2]
+obj=pyplot.imshow(r, cmap='gray')
+pyplot.show(obj)
+obj=pyplot.imshow(g, cmap='gray')
+pyplot.show(obj)
+obj=pyplot.imshow(b, cmap='gray')
+pyplot.show(obj)
